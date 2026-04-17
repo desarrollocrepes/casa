@@ -1,0 +1,45 @@
+/* ========== STEP 5: QUIZ ========== */
+.step-quiz {
+  gap: 0;
+}
+
+.quiz-card {
+  width: 100%;
+  text-align: center;
+}
+
+.quiz-title {
+  font-size: 1.875rem;
+  color: #4A3728;
+  margin: 0 0 2rem 0;
+}
+
+.quiz-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .quiz-buttons {
+    flex-direction: row;
+  }
+}
+
+.btn-quiz-option {
+  flex: 1;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  border: 4px solid #F9F1E7;
+  border-radius: 1.875rem;
+  font-size: 2.25rem;
+  color: #4A3728;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-quiz-option:hover {
+  border-color: #E5A842;
+  background-color: #faf5f0;
+}

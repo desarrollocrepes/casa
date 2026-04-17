@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F9F1E7;
+  color: #4A3728;
+  overflow: hidden;
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.flow-container {
+  position: fixed;
+  inset: 0;
+  background-color: #F9F1E7;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+.flow-decoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.1;
+}
+
+.flow-decoration-top {
+  top: -5rem;
+  right: -5rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: #E5A842;
+}
+
+.flow-decoration-bottom {
+  bottom: -5rem;
+  left: -5rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: #4A3728;
+}
+
+.flow-main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 112rem;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* ========== PASOS - ESTRUCTURA BASE ========== */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== BOTONES COMUNES ========== */
+.btn-arrow {
+  padding: 1.25rem;
+  background-color: #E5A842;
+  border: none;
+  border-radius: 9999px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-arrow:hover {
+  transform: scale(1.1);
+}
+
+.btn-arrow.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-back {
+  padding: 0.5rem 2rem;
+  color: #4A3728;
+  background: none;
+  border: 1px solid #4A3728;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-back:hover {
+  background-color: #f9f1e7;
+}
+
+.btn-finish {
+  padding: 0.5rem 2rem;
+  background-color: #E5A842;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-finish:hover {
+  background-color: #d49735;
+}
+
+.btn-continue {
+  padding: 0.75rem 3rem;
+  color: #4A3728;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-continue:hover {
+  opacity: 0.7;
+}
+
+.btn-change {
+  padding: 0.75rem 3rem;
+  color: #4A3728;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-change:hover {
+  opacity: 0.7;
+}
+
+/* ========== TÍTULOS COMUNES ========== */
+.mission-title {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  color: #4A3728;
+  max-width: 42rem;
+}
+
+@media (min-width: 768px) {
+  .mission-title {
+    font-size: 3rem;
+  }
+}
+
+.highlight {
+  color: #E5A842;
+}
+
+/* ========== MODAL ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-card {
+  background-color: white;
+  border-radius: 3rem;
+  padding: 3rem 2rem;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 3px solid #E5A842;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #4A3728;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #E5A842;
+}
+
+.modal-icon {
+  color: #E5A842;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  color: #4A3728;
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
+
+.modal-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.modal-detail-item {
+  color: #4A3728;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.modal-detail-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #E5A842;
+  font-size: 1.5rem;
+}
+
+.modal-btn-back {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #E5A842;
+  color: white;
+  border: none;
+  border-radius: 1.875rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-btn-back:hover {
+  background-color: #d49735;
+  transform: translateY(-0.125rem);
+}
+
+/* ========== SCROLLBARS PERSONALIZADOS ========== */
+.results-grid::-webkit-scrollbar,
+.housing-grid::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.results-grid::-webkit-scrollbar-track,
+.housing-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.results-grid::-webkit-scrollbar-thumb,
+.housing-grid::-webkit-scrollbar-thumb {
+  background: rgba(229, 168, 66, 0.2);
+  border-radius: 0.625rem;
+}

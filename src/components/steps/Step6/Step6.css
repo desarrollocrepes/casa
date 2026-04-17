@@ -1,0 +1,69 @@
+/* ========== STEP 6: RESULTS ========== */
+.step-results {
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .results-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.result-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+  border: 1px solid transparent;
+}
+
+.result-card:hover {
+  border: 1px solid #E5A842;
+}
+
+.result-icon {
+  color: #E5A842;
+  margin-bottom: 1rem;
+  justify-content: center;
+  display: flex;
+}
+
+.card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.result-card-title {
+  font-size: 1.25rem;
+  color: #4A3728;
+  margin: 0 0 1rem 0;
+}
+
+.result-description {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.results-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  margin-bottom: 0;
+  border-top: 1px solid #e5e7eb;
+  gap: 0.5rem;
+}

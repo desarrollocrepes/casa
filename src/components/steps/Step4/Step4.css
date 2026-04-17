@@ -1,0 +1,21 @@
+/* ========== STEP 4: GREETING ========== */
+.step-greeting {
+  text-align: center;
+}
+
+.greeting-badge {
+  width: 8rem;
+  height: 8rem;
+  background-color: #E5A842;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 1s ease;
+}
+
+.greeting-badge h1 {
+  margin: 0;
+  color: white;
+  font-size: 2rem;
+}

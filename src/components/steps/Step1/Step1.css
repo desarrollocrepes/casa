@@ -1,0 +1,12 @@
+/* ========== STEP 1: MISSION ========== */
+.step-mission {
+  text-align: center;
+  gap: 3rem;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.mission-logo {
+  transform: scale(1);
+  opacity: 0.5;
+}

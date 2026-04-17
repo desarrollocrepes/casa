@@ -1,0 +1,68 @@
+/* ========== STEP 3: LOGIN ========== */
+.step-login {
+  flex-direction: row-reverse;
+  gap: 3rem;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .step-login {
+    flex-direction: column;
+  }
+}
+
+.login-title {
+  font-size: 1.25rem;
+  color: #4A3728;
+}
+
+.login-card-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 0;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #E5A842;
+}
+
+.login-input {
+  width: 100%;
+  padding: 1.25rem 1.5rem 1.25rem 3.5rem;
+  border: 2px solid #F9F1E7;
+  border-radius: 1.875rem;
+  font-size: 1.25rem;
+  color: #4A3728;
+  transition: border-color 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #E5A842;
+}
+
+.login-input::placeholder {
+  color: #ccc;
+}

@@ -1,0 +1,95 @@
+/* ========== STEP 7: HOUSING TYPES ========== */
+.step-housing-types {
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+.housing-header {
+  text-align: center;
+}
+
+.housing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  margin-bottom: 2rem;
+  max-width: 96rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .housing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.housing-card {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 4px solid transparent;
+  transition: all 0.2s;
+}
+
+.housing-card:hover {
+  border-color: #E5A842;
+}
+
+.housing-card h4 {
+  font-size: 1.5rem;
+  color: #4A3728;
+  margin: 1rem 0 1rem 0;
+}
+
+.housing-card p {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+  flex: 1;
+}
+
+.housing-card-title {
+  font-size: 1.5rem;
+  color: #4A3728;
+  margin: 0 0 1rem 0;
+}
+
+.housing-description {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+  flex: 1;
+}
+
+.btn-discover {
+  width: 100%;
+  padding: 1.25rem;
+  background-color: #E5A842;
+  color: white;
+  border: none;
+  border-radius: 1.875rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-discover:hover {
+  background-color: #d49735;
+  transform: translateY(-0.125rem);
+}
+
+.housing-footer {
+  display: flex;
+  justify-content: center;
+}
