@@ -1,95 +1,123 @@
-/* ========== STEP 9: ACCOUNTS ========== */
-.step-accounts {
+/* ========== STEP 9: BUDGET ========== */
+.step-budget {
   flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.accounts-title {
-  font-size: 3rem;
-  color: #4A3728;
+.step-budget .title {
   text-align: center;
-  margin: 0 0 2rem 0;
 }
 
-.accounts-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-
-.accounts-total {
-  background-color: #E5A842;
-  color: white;
-  padding: 1.5rem 3rem;
-  border-radius: 1.5rem;
-  text-align: center;
+.budget-content {
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.accounts-total-text {
-  font-size: 1.5rem;
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-
-.accounts-divider {
-  width: 2px;
-  height: 3rem;
-  background-color: #4A3728;
-}
-
-.accounts-split {
   display: flex;
-  gap: 3rem;
-  width: 100%;
   justify-content: center;
-  flex-wrap: wrap;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 1rem;
 }
 
-@media (max-width: 640px) {
-  .accounts-split {
-    gap: 1.5rem;
+.budget-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .budget-options {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.accounts-column {
+.budget-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
-}
-
-.accounts-label {
-  font-size: 1.25rem;
-  color: #4A3728;
-  margin: 0;
-}
-
-.accounts-percentage {
-  background-color: #E5A842;
-  color: white;
-  padding: 1.5rem 2.5rem;
-  border-radius: 1.25rem;
-  font-size: 2.5rem;
-  min-width: 150px;
+  padding: 2rem;
+  border-radius: 2rem;
+  color: var(--color-white);
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 3px solid transparent;
+  min-height: 300px;
+  justify-content: space-between;
+  background: #8B6F47;
+  transition: all 0.3s;
 }
 
-.accounts-percentage.accounts-large {
-  padding: 2rem 3rem;
-  font-size: 3rem;
-  min-width: 180px;
+.budget-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.accounts-footer {
+.budget-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.budget-card-subtitle {
+  font-size: 0.925rem;
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.95;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-budget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+  border-radius: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-budget:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-budget:active {
+  transform: translateY(0);
+}
+
+.budget-footer {
   display: flex;
   justify-content: center;
-  padding-top: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .budget-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .budget-card {
+    min-height: 250px;
+    padding: 1.5rem;
+  }
+  
+  .budget-card-title {
+    font-size: 1.1rem;
+  }
+  
+  .budget-card-subtitle {
+    font-size: 0.85rem;
+  }
 }

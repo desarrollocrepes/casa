@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFlow } from '../../../context/FlowContext';
 import './Step5.css';
+import { CircleCheck, CircleSlash, CircleX } from 'lucide-react';
 
 export const Step5 = () => {
   const { nextStep, goToStep, updateAnswer } = useFlow();
@@ -8,21 +9,24 @@ export const Step5 = () => {
   const handleAnswer = (answer) => {
     updateAnswer('q1', answer);
     if (answer === 'Si') {
-      goToStep(6); // Resultados
-    } else {
-      goToStep(7); // Tipos de vivienda
+      goToStep(6); // Step 6
+    } else if (answer === 'No') {
+      goToStep(7); // Step 7 - Tipos de vivienda
+    } else if (answer === 'Parcialmente') {
+      goToStep(8); // Step 8 - Checklist
     }
   };
 
   return (
     <div className="step step-quiz">
       <div className="quiz-card">
-        <h3 className="quiz-title">
+        <h3 className="title">
           ¿Actualmente cuentas con vivienda propia?
         </h3>
         <div className="quiz-buttons">
-          <button onClick={() => handleAnswer('Si')} className="btn-quiz-option">Sí</button>
-          <button onClick={() => handleAnswer('No')} className="btn-quiz-option">No</button>
+          <button onClick={() => handleAnswer('Si')} className="btn-arrow"><CircleCheck /> Sí</button>
+          <button onClick={() => handleAnswer('Parcialmente')} className="btn-arrow"><CircleSlash /> Parcialmente</button>
+          <button onClick={() => handleAnswer('No')} className="btn-arrow"><CircleX /> No</button>
         </div>
       </div>
     </div>

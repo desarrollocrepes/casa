@@ -1,10 +1,10 @@
 import React from 'react';
-import { Wrench, Home, Scale } from 'lucide-react';
+import { Wrench, Home, Scale, ArrowRight } from 'lucide-react';
 import { useFlow } from '../../../context/FlowContext';
 import './Step6.css';
 
 export const Step6 = () => {
-  const { prevStep, resetFlow } = useFlow();
+  const { goToStep } = useFlow();
 
   const RESULTS_DATA = [
     {
@@ -37,11 +37,8 @@ export const Step6 = () => {
       </div>
 
       <div className="results-footer">
-        <button onClick={prevStep} className="btn-back">
-          Volver
-        </button>
-        <button onClick={resetFlow} className="btn-finish">
-          Finalizar
+        <button onClick={() => goToStep(13)} className="btn-arrow">
+          <ArrowRight size={22} />
         </button>
       </div>
     </div>

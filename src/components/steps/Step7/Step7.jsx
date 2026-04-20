@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Home, Building2, Building } from 'lucide-react';
+import React from 'react';
+import { ArrowLeft, ArrowRight, Home, Building2, Building } from 'lucide-react';
 import { useFlow } from '../../../context/FlowContext';
 import './Step7.css';
 
 export const Step7 = () => {
-  const { prevStep, nextStep } = useFlow();
-  const [selectedHousingType, setSelectedHousingType] = useState(null);
+  const { goToStep, uiState, updateUIState } = useFlow();
+  const selectedHousingType = uiState.expandedRow;
 
   const HOUSING_TYPES = [
     {
@@ -43,23 +43,29 @@ export const Step7 = () => {
     }
   ];
 
+  const handleSelectHousingType = (idx) => {
+    updateUIState('expandedRow', selectedHousingType === idx ? null : idx);
+  };
+
+  const handleCloseModal = () => {
+    updateUIState('expandedRow', null);
+  };
+
   return (
     <div className="step step-housing-types">
-      <div className="housing-header">
-        <h2 className="mission-title">
-          Los tipos de vivienda a los que aplicas son:
-        </h2>
-      </div>
-
+      <h2 className="title">
+        Los tipos de vivienda a los que aplicas son:
+      </h2>
+      
       <div className="housing-grid">
         {HOUSING_TYPES.map((type, idx) => (
           <div key={idx} className="housing-card">
-            <span className="card-icon">{type.icon}</span>
+            <div className="card-icon">{type.icon}</div>
             <h4>{type.title}</h4>
             <p>{type.description}</p>
             <button 
               className="btn-discover"
-              onClick={() => setSelectedHousingType(idx)}
+              onClick={() => handleSelectHousingType(idx)}
             >
               Descubre proyectos
             </button>
@@ -68,21 +74,15 @@ export const Step7 = () => {
       </div>
 
       <div className="housing-footer">
-        <button onClick={() => nextStep()} className="btn-continue">
-          Continuar
+        <button onClick={() => goToStep(9)} className="btn-arrow">
+          <ArrowRight size={22} />
         </button>
       </div>
 
       {/* Modal de Detalles */}
       {selectedHousingType !== null && (
-        <div className="modal-overlay" onClick={() => setSelectedHousingType(null)}>
+        <div className="modal-overlay" onClick={handleCloseModal}>
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="modal-close"
-              onClick={() => setSelectedHousingType(null)}
-            >
-              ✕
-            </button>
             
             <div className="modal-icon">
               {HOUSING_TYPES[selectedHousingType].icon}
@@ -99,10 +99,10 @@ export const Step7 = () => {
             </ul>
             
             <button 
-              className="modal-btn-back"
-              onClick={() => setSelectedHousingType(null)}
+              className="btn-arrow"
+              onClick={handleCloseModal}
             >
-              Volver
+              <ArrowLeft size={22} />
             </button>
           </div>
         </div>

@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
 
+:root {
+  /* === COLORES === */
+  --color-primary: #E5A842;
+  --color-text-dark: #4A3728;
+  --color-bg-light: #F9F1E7;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  
+  /* === BREAKPOINTS === */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  
+  /* === SIZING === */
+  --font-base: 1rem;
+  --font-lg: 1.5rem;
+  --font-xl: 2rem;
+  --padding-sm: 0.5rem;
+  --padding-md: 1rem;
+  --padding-lg: 2rem;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -32,7 +55,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 .flow-decoration-top {
@@ -67,10 +90,20 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  inset: 0;
   width: 100%;
-  height: 100%;
-  padding: 2rem;
-  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100vh;
+  height: 100dvh;
+  padding: var(--padding-lg);
+  overflow: hidden;
+  animation: fadeIn 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: var(--bp-md)) {
+  .step {
+    padding: var(--padding-md);
+  }
 }
 
 @keyframes fadeIn {
@@ -106,100 +139,83 @@ body {
 
 /* ========== BOTONES COMUNES ========== */
 .btn-arrow {
-  padding: 1.25rem;
-  background-color: #E5A842;
+  padding: var(--padding-md);
+  background-color: var(--color-primary);
   border: none;
   border-radius: 9999px;
-  color: white;
+  color: var(--color-white);
   cursor: pointer;
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: var(--font-base);
 }
 
 .btn-arrow:hover {
   transform: scale(1.1);
 }
 
+.btn-arrow:active {
+  transform: scale(0.95);
+}
+
 .btn-arrow.disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.btn-back {
-  padding: 0.5rem 2rem;
-  color: #4A3728;
-  background: none;
-  border: 1px solid #4A3728;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-back:hover {
-  background-color: #f9f1e7;
-}
-
-.btn-finish {
-  padding: 0.5rem 2rem;
-  background-color: #E5A842;
-  color: white;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-finish:hover {
-  background-color: #d49735;
-}
-
-.btn-continue {
-  padding: 0.75rem 3rem;
-  color: #4A3728;
-  background: none;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-continue:hover {
-  opacity: 0.7;
+  transform: none;
 }
 
 .btn-change {
   padding: 0.75rem 3rem;
-  color: #4A3728;
+  color: var(--color-text-dark);
   background: none;
   border: none;
   text-decoration: underline;
   cursor: pointer;
   transition: all 0.2s;
+  font-size: var(--font-base);
 }
 
 .btn-change:hover {
   opacity: 0.7;
 }
 
-/* ========== TÍTULOS COMUNES ========== */
-.mission-title {
-  font-size: 1.875rem;
-  line-height: 1.2;
-  color: #4A3728;
-  max-width: 42rem;
-}
-
-@media (min-width: 768px) {
-  .mission-title {
-    font-size: 3rem;
+@media (max-width: var(--bp-md)) {
+  .btn-arrow {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .btn-change {
+    padding: 0.5rem 2rem;
+    font-size: 0.875rem;
   }
 }
 
+/* ========== TÍTULOS COMUNES ========== */
+.title {
+  font-size: var(--font-xl);
+  color: var(--color-text-dark);
+  max-width: 42rem;
+  text-align: center;
+}
+
 .highlight {
-  color: #E5A842;
+  color: var(--color-primary);
+}
+
+@media (max-width: var(--bp-md)) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: var(--bp-sm)) {
+  .title {
+    font-size: 1.25rem;
+  }
 }
 
 /* ========== MODAL ========== */
@@ -213,84 +229,52 @@ body {
   z-index: 50;
   backdrop-filter: blur(2px);
   animation: fadeIn 0.2s ease-out;
+  overflow-y: auto;
 }
 
 .modal-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: 3rem;
   padding: 3rem 2rem;
   max-width: 500px;
   width: 90%;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 3px solid #E5A842;
-}
-
-.modal-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #4A3728;
-  cursor: pointer;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s;
-}
-
-.modal-close:hover {
-  color: #E5A842;
+  margin: 2rem 0;
 }
 
 .modal-icon {
-  color: #E5A842;
+  color: var(--color-primary);
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .modal-title {
   font-size: 1.75rem;
-  color: #4A3728;
+  color: var(--color-text-dark);
   text-align: center;
-  margin: 0 0 2rem 0;
 }
 
 .modal-details-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem 0;
 }
 
 .modal-detail-item {
-  color: #4A3728;
+  color: var(--color-text-dark);
   font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   position: relative;
-}
-
-.modal-detail-item::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #E5A842;
-  font-size: 1.5rem;
 }
 
 .modal-btn-back {
   width: 100%;
   padding: 1rem 2rem;
-  background-color: #E5A842;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   border: none;
   border-radius: 1.875rem;
   font-size: 1rem;
@@ -301,6 +285,25 @@ body {
 .modal-btn-back:hover {
   background-color: #d49735;
   transform: translateY(-0.125rem);
+}
+
+.modal-btn-back:active {
+  transform: translateY(0);
+}
+
+@media (max-width: var(--bp-md)) {
+  .modal-card {
+    padding: 2rem 1.5rem;
+    border-radius: 2rem;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .modal-detail-item {
+    font-size: 0.875rem;
+  }
 }
 
 /* ========== SCROLLBARS PERSONALIZADOS ========== */
@@ -319,3 +322,173 @@ body {
   background: rgba(229, 168, 66, 0.2);
   border-radius: 0.625rem;
 }
+
+/* ========== BOTONES REUTILIZABLES ========== */
+.btn-continue,
+.btn-options,
+.btn-budget {
+  padding: var(--padding-md) 3rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 1.875rem;
+  font-size: var(--font-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-continue:hover,
+.btn-options:hover,
+.btn-budget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-continue:active,
+.btn-options:active,
+.btn-budget:active {
+  transform: translateY(0);
+}
+
+.btn-finish-flow,
+.btn-back-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 1.875rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-finish-flow:hover,
+.btn-back-flow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-finish-flow:active,
+.btn-back-flow:active {
+  transform: translateY(0);
+}
+
+@media (max-width: var(--bp-md)) {
+  .btn-continue,
+  .btn-options,
+  .btn-budget {
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
+  }
+  
+  .btn-finish-flow,
+  .btn-back-flow {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ========== TARJETAS REUTILIZABLES ========== */
+.result-card,
+.budget-card,
+.financing-card {
+  padding: 2rem;
+  background-color: var(--color-white);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.result-card:hover,
+.budget-card:hover,
+.financing-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+@media (max-width: var(--bp-md)) {
+  .result-card,
+  .budget-card,
+  .financing-card {
+    padding: 1.5rem;
+  }
+}
+
+/* ========== CONTENEDORES PRINCIPALES DE STEPS ========== */
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  padding: var(--padding-lg);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media (max-width: var(--bp-md)) {
+  .step-container {
+    padding: var(--padding-md);
+  }
+}
+
+/* ========== GRILLAS REUTILIZABLES ========== */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: var(--bp-md)) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== ANIMACIONES REUTILIZABLES ========== */
+@keyframes wiggle {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes point {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-5deg); }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.animate-point {
+  animation: point 1s ease-in-out infinite;
+}
+
+/* ========== UTILIDADES DE ESPACIADO ========== */
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }

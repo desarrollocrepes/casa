@@ -9,11 +9,11 @@ export const Step1 = () => {
   return (
     <div className="step step-mission">
       <LogoContainer className="mission-logo" />
-      <h2 className="mission-title">
+      <h2 className="title">
         ¡En Crepes & Waffles queremos ayudarte a cumplir tus metas y objetivos!
       </h2>
       <button onClick={nextStep} className="btn-arrow">
-        <ArrowRight size={32} />
+        <ArrowRight size={22} />
       </button>
     </div>
   );

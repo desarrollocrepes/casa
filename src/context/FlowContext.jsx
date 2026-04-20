@@ -10,6 +10,14 @@ export const FlowProvider = ({ children }) => {
     answers: { q1: '' },
     selectedHousingType: null,
   });
+  
+  // UI State centralizado para evitar duplicación en componentes
+  const [uiState, setUiState] = useState({
+    expandedRow: null,
+    selectedItems: [],
+    showModal: false,
+    confirmationData: null,
+  });
 
   const nextStep = () => setStep(prev => prev + 1);
   const prevStep = () => setStep(prev => Math.max(0, prev - 1));
@@ -25,6 +33,29 @@ export const FlowProvider = ({ children }) => {
       answers: { ...prev.answers, [questionKey]: answer }
     }));
   };
+  
+  const updateUIState = (key, value) => {
+    setUiState(prev => ({
+      ...prev,
+      [key]: value
+    }));
+  };
+  
+  const toggleUIState = (key, toggleValue = null) => {
+    setUiState(prev => ({
+      ...prev,
+      [key]: toggleValue !== null ? toggleValue : (prev[key] ? null : (toggleValue || !prev[key]))
+    }));
+  };
+  
+  const resetUIState = () => {
+    setUiState({
+      expandedRow: null,
+      selectedItems: [],
+      showModal: false,
+      confirmationData: null,
+    });
+  };
 
   const resetFlow = () => {
     setStep(0);
@@ -34,16 +65,21 @@ export const FlowProvider = ({ children }) => {
       answers: { q1: '' },
       selectedHousingType: null,
     });
+    resetUIState();
   };
 
   const value = {
     step,
     formData,
+    uiState,
     nextStep,
     prevStep,
     goToStep,
     updateFormData,
     updateAnswer,
+    updateUIState,
+    toggleUIState,
+    resetUIState,
     resetFlow,
   };
 

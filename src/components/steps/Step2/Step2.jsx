@@ -9,14 +9,14 @@ export const Step2 = () => {
     <div className="step step-welcome">
       <div className="welcome-card-container">
         <div className="welcome-card">
-          <h2 className="mission-title">
+          <h2 className="title">
             Bienvenido a <br />
             TU CASA, TU FUTURO <br />
             <br />
             Es hora de materializar la meta por la cual trabajas día a día con amor y dedicación
           </h2>
           <button onClick={nextStep} className="btn-arrow">
-            <ArrowRight size={32} />
+            <ArrowRight size={22} />
           </button>
         </div>
       </div>

@@ -1,6 +1,3 @@
-/* ========== STEP 0: SPLASH ========== */
 .step-splash {
-  gap: 2rem;
-  max-width: 95%;
-  margin: 0 auto;
+  max-width: 100%;
 }

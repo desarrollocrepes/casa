@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { FlowProvider, useFlow } from './context/FlowContext';
-import { Header } from './components/common/Header';
 import { Step0 } from './components/steps/Step0/Step0';
 import { Step1 } from './components/steps/Step1/Step1';
 import { Step2 } from './components/steps/Step2/Step2';
@@ -11,6 +10,11 @@ import { Step6 } from './components/steps/Step6/Step6';
 import { Step7 } from './components/steps/Step7/Step7';
 import { Step8 } from './components/steps/Step8/Step8';
 import { Step9 } from './components/steps/Step9/Step9';
+import { Step10 } from './components/steps/Step10/Step10';
+import { Step11 } from './components/steps/Step11/Step11';
+import { Step12 } from './components/steps/Step12/Step12';
+import { Step13 } from './components/steps/Step13/Step13';
+import { Step14 } from './components/steps/Step14/Step14';
 import './styles/globals.css';
 import './components/common/common.css';
 import './components/steps/Step0/Step0.css';
@@ -23,6 +27,11 @@ import './components/steps/Step6/Step6.css';
 import './components/steps/Step7/Step7.css';
 import './components/steps/Step8/Step8.css';
 import './components/steps/Step9/Step9.css';
+import './components/steps/Step10/Step10.css';
+import './components/steps/Step11/Step11.css';
+import './components/steps/Step12/Step12.css';
+import './components/steps/Step13/Step13.css';
+import './components/steps/Step14/Step14.css';
 
 const FlowContainer = () => {
   const { step, goToStep } = useFlow();
@@ -47,6 +56,11 @@ const FlowContainer = () => {
       case 7: return <Step7 />;
       case 8: return <Step8 />;
       case 9: return <Step9 />;
+      case 10: return <Step10 />;
+      case 11: return <Step11 />;
+      case 12: return <Step12 />;
+      case 13: return <Step13 />;
+      case 14: return <Step14 />;
       default: return null;
     }
   };
@@ -56,9 +70,6 @@ const FlowContainer = () => {
       {/* Decoraciones de fondo - círculos blur */}
       <div className="flow-decoration flow-decoration-top"></div>
       <div className="flow-decoration flow-decoration-bottom"></div>
-
-      {/* Header - visible después del splash (step > 1) */}
-      {step > 1 && <Header currentStep={step} />}
 
       {/* Viewport principal - renderiza el paso actual */}
       <main className="flow-main">
