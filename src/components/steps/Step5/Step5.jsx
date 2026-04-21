@@ -1,7 +1,6 @@
 import React from 'react';
 import { useFlow } from '../../../context/FlowContext';
 import './Step5.css';
-import { CircleCheck, CircleSlash, CircleX } from 'lucide-react';
 
 export const Step5 = () => {
   const { nextStep, goToStep, updateAnswer } = useFlow();
@@ -24,9 +23,9 @@ export const Step5 = () => {
           ¿Actualmente cuentas con vivienda propia?
         </h3>
         <div className="quiz-buttons">
-          <button onClick={() => handleAnswer('Si')} className="btn-arrow"><CircleCheck /> Sí</button>
-          <button onClick={() => handleAnswer('Parcialmente')} className="btn-arrow"><CircleSlash /> Parcialmente</button>
-          <button onClick={() => handleAnswer('No')} className="btn-arrow"><CircleX /> No</button>
+          <button onClick={() => handleAnswer('Si')} className="btn-arrow">Sí</button>
+          <button onClick={() => handleAnswer('Parcialmente')} className="btn-arrow">Parcialmente</button>
+          <button onClick={() => handleAnswer('No')} className="btn-arrow">No</button>
         </div>
       </div>
     </div>

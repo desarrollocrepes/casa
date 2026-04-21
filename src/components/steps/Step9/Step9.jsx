@@ -10,20 +10,17 @@ export const Step9 = () => {
     {
       title: 'Tienes el dinero completo para tu vivienda',
       subtitle: '¿Ahora elige tu vivienda!',
-      buttonText: 'Haciendo Click Aquí',
-      color: 'budget-yellow'
+      buttonText: 'Click Aquí',
     },
     {
       title: '¿No tienes claro tu presupuesto?',
       subtitle: 'Obtén un estimado de gastos, cuotas o presupuestos.',
-      buttonText: 'Haciendo Click Aquí',
-      color: 'budget-brown'
+      buttonText: 'Click Aquí',
     },
     {
       title: '¿Estás reportado en centrales?',
       subtitle: '¡Tu sueño no termina aquí! Inicia tu proceso de subsanamiento',
-      buttonText: 'Haciendo Click Aquí',
-      color: 'budget-beige'
+      buttonText: 'Click Aquí',
     }
   ];
 
@@ -33,10 +30,9 @@ export const Step9 = () => {
         Ahora que ya sabes el tipo de vivienda que más se adapta a ti, veamos cuál es tu <strong>presupuesto</strong>. Esto dependerá de tus ingresos y de los préstamos o créditos que puedas solicitar
       </h2>
 
-      <div className="budget-content">
-        <div className="budget-options">
+      <div className="budget-options">
           {BUDGET_OPTIONS.map((option, idx) => (
-            <div key={idx} className={`budget-card ${option.color}`}>
+            <div key={idx} className="budget-card">
               <h4 className="budget-card-title">{option.title}</h4>
               <p className="budget-card-subtitle">{option.subtitle}</p>
               <button className="btn-budget">
@@ -45,6 +41,9 @@ export const Step9 = () => {
             </div>
           ))}
         </div>
+
+      <div className="budget-content">
+        
       </div>
 
       <div className="budget-footer">

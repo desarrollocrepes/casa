@@ -67,10 +67,6 @@ const FlowContainer = () => {
 
   return (
     <div className="flow-container">
-      {/* Decoraciones de fondo - círculos blur */}
-      <div className="flow-decoration flow-decoration-top"></div>
-      <div className="flow-decoration flow-decoration-bottom"></div>
-
       {/* Viewport principal - renderiza el paso actual */}
       <main className="flow-main">
         {renderStep()}
