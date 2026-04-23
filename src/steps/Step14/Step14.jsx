@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Eye } from 'lucide-react';
 import { useFlow } from '../../context/FlowContext';
-import { MOCK_APPLICATIONS } from '../../data/mockData';
+import { MOCK_APPLICATIONS } from './mockData';
 import './Step14.css';
 
 export const Step14 = () => {
