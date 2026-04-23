@@ -1,0 +1,26 @@
+.step-quiz {
+  text-align: center;
+}
+
+.quiz-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+}
+
+.quiz-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.quiz-buttons .btn-arrow {
+  width: fit-content;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

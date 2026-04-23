@@ -1,0 +1,66 @@
+.step-greeting {
+  gap: 1rem;
+}
+
+.greeting-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  max-width: 700px;
+}
+
+.greeting-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-icon {
+  color: var(--color-text-dark);
+}
+
+@media (max-width: 768px) {
+  .step-greeting {
+    gap: 1.5rem;
+  }
+  
+  .greeting-content {
+    gap: 1.25rem;
+    max-width: 100%;
+  }
+  
+  .greeting-avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-greeting {
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+
+  .greeting-container {
+    max-width: 100%;
+  }
+
+  .greeting-card {
+    padding: 1rem;
+  }
+}

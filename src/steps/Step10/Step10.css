@@ -1,0 +1,100 @@
+/* ========== STEP 10: FINANCING ACCOUNTS ========== */
+.step-accounts {
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.accounts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.accounts-total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--color-primary);
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.accounts-total-text {
+  color: var(--color-white);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.accounts-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.accounts-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-white);
+  border-radius: 1rem;
+}
+
+.accounts-label {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.accounts-percentage {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1;
+}
+
+.accounts-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .step-accounts {
+    gap: 2rem;
+  }
+  
+  .accounts-container {
+    max-width: 100%;
+  }
+  
+  .accounts-percentage {
+    font-size: 2rem;
+  }
+  
+  .accounts-percentage.accounts-large {
+    font-size: 2.25rem;
+  }
+
+  .financing-option-title {
+    font-size: 1rem;
+  }
+
+  .financing-option-desc {
+    font-size: 0.85rem;
+  }
+
+  .character-placeholder {
+    font-size: 8rem;
+  }
+}

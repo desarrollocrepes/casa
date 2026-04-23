@@ -1,0 +1,55 @@
+.step-financing {
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.financing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.financing-card {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 1.875rem;
+  align-items: flex-start;
+  background-color: var(--color-white);
+}
+
+.financing-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.financing-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.financing-option-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.financing-option-desc {
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.2;
+  opacity: 0.95;
+}
+
+.financing-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
